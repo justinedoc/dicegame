@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900;&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom right, #f31e1ee6, #e534d6);
+    padding: 10px 20px;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    background: #ffffff7d;
+    width: 1000px;
+    height: 100vh;
+    border-radius: 20px;
+    box-shadow: 0px 20px 30px #0000005a;
+    position: relative;
+}
+
+.container .player1,
+.container .player2 {
+    width: 50%;
+    height: 100%;
+}
+
+.active.player1 {
+    background: #ffffff7d;
+    border-radius: 20px 0 0 20px;
+}
+
+.player1-active .player2 {
+    opacity: .8;
+}
+
+.player2-active .player1 {
+    opacity: .8;
+}
+
+.active.player2 {
+    background: #ffffff8b;
+    border-radius: 0px 20px 20px 0;
+}
+
+.player {
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.player .name {
+    color: #000;
+    font-size: 2.3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.player .score {
+    font-size: 5rem;
+    font-weight: 300;
+    color: #f83235d6;
+}
+
+.player .current {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f31e1ee6;
+    width: 210px;
+    height: 120px;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 1rem;
+}
+
+.current .current-label {
+    text-transform: uppercase;
+    color: #ffff;
+    font-size: 16px;
+}
+
+.current .current-score {
+    font-size: 40px;
+    color: #ffff;
+}
+
+.game-controls {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: calc((1000px - 300px) / 2);
+    top: 7%;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-controls img {
+    width: 100px;
+    height: 100px;
+}
+
+.game-controls img {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.game-controls img,
+.game-controls button {
+    filter: drop-shadow(-5px 20px 20px #0000002f);
+}
+
+.game-controls button {
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    background: #ffff;
+    border: none;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+
+.game-controls button:nth-child(4) {
+    margin-top: 20px;
+    width: 140px;
+}
+
+.game-controls button:nth-child(3) {
+    width: 180px;
+}
+
+.winner-theme {
+    width: 1000px;
+    height: 80vh;
+    background: linear-gradient(to bottom, #f31e1e, #e534d6);
+    position: fixed;
+    z-index: 10;
+    left: 116px;
+    top: -90%;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: 2s;
+}
+
+.winner-player .winner-theme {
+    animation: drop 2s linear forwards;
+}
+
+@keyframes drop {
+    to {
+        transform: translateY(500px);
+    }
+}
+
+
+.win-theme-player {
+    color: #000;
+    font-size: 5rem;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 1000px) {
+    .container {
+        width: 900px;
+    }
+
+    .game-controls {
+        left: calc((900px - 300px) / 2);
+        top: 5%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .container {
+        width: 750px;
+    }
+
+    .game-controls {
+        left: calc((750px - 300px) / 2);
+        top: 5%;
+    }
+}
+
+@media only screen and (max-width: 612px) {
+    .container {
+        width: 550px;
+    }
+
+    .game-controls {
+        left: calc((550px - 300px) / 2);
+    }
+
+    .player .name {
+        font-size: 1.9rem;
+        text-align: center;
+    }
+
+    .player .score {
+        font-size: 4rem;
+    }
+}
