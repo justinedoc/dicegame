@@ -230,20 +230,21 @@ section {
 
     .container {
         width: 350px;
+        height: 99vh;
     }
 
     .game-controls {
         left: calc((350px - 100px) / 2);
-        top: 1%;
+        top: 5%;
         width: 100px;
     }
 
     .game-controls button {
-        width: 160px;
-        height: calc(100px / 2.5);
-        border-radius: 20px;
-        font-size: 15px;
-        font-weight: 300;
+        width: 170px;
+        height: calc(100px / 2);
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: 400;
     }
 
     .game-controls img {
@@ -274,6 +275,7 @@ section {
         width: 150px;
         height: 80px;
         gap: .1rem;
+        margin-top: 100px;
     }
 
     .current .current-score {
@@ -302,13 +304,13 @@ section {
 
 @media only screen and (max-width: 314px) {
     .container {
-        width: 250px;
-        height: 95vh;
+        width: 300px;
+        height: 98vh;
     }
 
     .game-controls {
-        left: calc((250px - 100px) / 2);
-        top: 1%;
+        left: calc((300px - 100px) / 2);
+        top: 5%;
         width: 100px;
     }
 
