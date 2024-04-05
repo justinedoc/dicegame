@@ -12,11 +12,14 @@ let dice = document.querySelector(".dice");
 const rollDiceBtn = document.querySelector(".btn--roll");
 const holdBtn = document.querySelector(".btn--hold");
 const players = document.querySelector(".player");
+const gameControls = document.querySelector(".game-controls")
 
-currentScorePlayer1.textContent = 0
-currentScorePlayer2.textContent = 0
-scorePlayer1.textContent = 0
-scorePlayer2.textContent = 0
+currentScorePlayer1.textContent = 0;
+currentScorePlayer2.textContent = 0;
+scorePlayer1.textContent = 0;
+scorePlayer2.textContent = 0;
+let currentPlayer1Name = namePlayer1.textContent;
+let currentPlayer2Name = namePlayer2.textContent;
 
 
 function randomMaths(min, max) {
@@ -123,23 +126,20 @@ holdBtn.addEventListener("click", () => {
     }
 })
 
+const playerName = () => {
+    !player1.classList.contains("winner-player") ? namePlayer1.textContent = currentPlayer1Name : namePlayer1.textContent = `P1 wins  🙌🎉`;
+    !player2.classList.contains("winner-player") ? namePlayer2.textContent = currentPlayer2Name : namePlayer2.textContent = `P2 wins  🙌🎉`;
+}
 
 
-function showWinner(player1, player2) {
-    if (parseFloat(player1) >= 100) {
+function showWinner(Player1, Player2) {
+    if (parseFloat(Player1) >= 100) {
+        player1.classList.add("winner-player");
+        playerName();
 
-        container.classList.add("winner-player");
-
-        const winningTheme = document.querySelector(".win-theme-player");
-        winningTheme.textContent = `${namePlayer1.textContent} wins  🙌🎉`
-        reset();
-
-    } else if (parseFloat(player2) >= 100) {
-        document.body.classList.add("winner-player");
-
-        const winningTheme = document.querySelector(".win-theme-player");
-        winningTheme.textContent = `${namePlayer2.textContent} wins  🙌🎉`
-        reset();
+    } else if (parseFloat(Player2) >= 100) {
+        player2.classList.add("winner-player");
+        playerName();
     }
 }
 
@@ -149,11 +149,14 @@ function reset() {
     scorePlayer2.textContent = 0;
     currentScorePlayer1.textContent = 0;
     currentScorePlayer2.textContent = 0;
+    player1.classList.contains("winner-player") ? player1.classList.remove("winner-player") : player2.classList.remove("winner-player");
     const resetPlayers = player2.classList.contains("active") ? true : false;
     if (resetPlayers === true) {
         player2.classList.remove("active");
         player1.classList.add("active")
     }
+
+    playerName();
 }
 
 newGameBtn.addEventListener("click", reset)

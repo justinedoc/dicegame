@@ -53,7 +53,7 @@ section {
 }
 
 .active.player2 {
-    background: #ffffff8b;
+    background: #ffffff7d;
     border-radius: 0px 20px 20px 0;
 }
 
@@ -66,11 +66,24 @@ section {
     gap: 2rem;
 }
 
+.player1.winner-player {
+    background: #000;
+}
+
+.player2.winner-player {
+    background: #000;
+}
+
 .player .name {
     color: #000;
     font-size: 2.3rem;
     font-weight: 400;
     text-transform: uppercase;
+}
+
+.winner-player .name {
+    color: #ffff;
+    text-align: center;
 }
 
 .player .score {
@@ -142,7 +155,6 @@ section {
     cursor: pointer;
 }
 
-
 .game-controls button:nth-child(4) {
     margin-top: 20px;
     width: 140px;
@@ -150,39 +162,6 @@ section {
 
 .game-controls button:nth-child(3) {
     width: 180px;
-}
-
-.winner-theme {
-    width: 1000px;
-    height: 80vh;
-    background: linear-gradient(to bottom, #f31e1e, #e534d6);
-    position: fixed;
-    z-index: 10;
-    left: 116px;
-    top: -90%;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    transition: 2s;
-}
-
-.winner-player .winner-theme {
-    animation: drop 2s linear forwards;
-}
-
-@keyframes drop {
-    to {
-        transform: translateY(500px);
-    }
-}
-
-
-.win-theme-player {
-    color: #000;
-    font-size: 5rem;
-    font-weight: 400;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -263,8 +242,22 @@ section {
         width: 120px;
     }
 
+    .player {
+        padding: 50px;
+        gap: 5rem;
+    }
+
+    .winner-player {
+        padding: 0;
+    }
+
     .player .name {
         font-size: 1.2rem;
+    }
+
+    .winner-player .name {
+        width: 50%;
+        height: auto;
     }
 
     .player .score {
@@ -294,11 +287,6 @@ section {
     body {
         background: linear-gradient(to bottom, #f31e1ee6, #e534d6);
         padding: 10px 0px;
-    }
-
-    .player {
-        padding: 50px;
-        gap: 5rem;
     }
 }
 
