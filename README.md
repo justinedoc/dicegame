@@ -7,7 +7,7 @@ This project is a web-based interactive dice game designed for two players. The 
 - **Active Player Highlighting**: Visually indicates the current player's turn.
 - **Score Accumulation**: Players can accumulate points with each roll, adding a strategic element to the game.
 - **Turn Switching**: Automatically switches turns when a player rolls a 1 or chooses to hold their score.
-- **Winner Declaration**: A function to declare the winner based on the accumulated scores (to be implemented).
+- **Winner Declaration**: A function to declare the winner based on the accumulated scores.
 
 This game is a demonstration of front-end development skills, including responsive design, and can serve as a fun portfolio piece to showcase problem-solving and interactive web development abilities.
 
