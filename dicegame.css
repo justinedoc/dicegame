@@ -164,6 +164,17 @@ section {
     width: 180px;
 }
 
+.game-controls span {
+    font-size: 12px;
+    transform: translateY(60px);
+    font-weight: 600;
+
+    a {
+        text-decoration: none;
+        color: aliceblue;
+    }
+}
+
 @media only screen and (max-width: 1000px) {
     .container {
         width: 900px;
