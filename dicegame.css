@@ -206,6 +206,10 @@ section {
         left: calc((550px - 300px) / 2);
     }
 
+    .game-controls span {
+        transform: translateY(100px);
+    }
+
     .player .name {
         font-size: 1.9rem;
         text-align: center;
@@ -227,6 +231,11 @@ section {
         left: calc((350px - 100px) / 2);
         top: 5%;
         width: 100px;
+    }
+
+    .game-controls span {
+        transform: translateY(200px);
+        text-align: center;
     }
 
     .game-controls button {
