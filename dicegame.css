@@ -1,342 +1,363 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900;&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900;&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 body {
-    background: linear-gradient(to bottom right, #f31e1ee6, #e534d6);
-    padding: 10px 20px;
+  background: linear-gradient(to bottom right, #f31e1ee6, #e534d6);
+  padding: 10px 20px;
 }
 
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 section {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
 }
 
 .container {
-    display: flex;
-    background: #ffffff7d;
-    width: 1000px;
-    height: 100vh;
-    border-radius: 20px;
-    box-shadow: 0px 20px 30px #0000005a;
-    position: relative;
+  display: flex;
+  background: #ffffff7d;
+  width: 1000px;
+  height: 100vh;
+  border-radius: 20px;
+  box-shadow: 0px 20px 30px #0000005a;
+  position: relative;
 }
 
-.container .player1,
-.container .player2 {
-    width: 50%;
-    height: 100%;
+.container .player0,
+.container .player1 {
+  width: 50%;
+  height: 100%;
+}
+
+.active.player {
+    background: #ffffff9c;
+    .name {
+        font-weight: 600;
+        color: #000
+    };
+
+    .current {
+        background: #f31e1ee6;
+    }
+}
+
+.active.player0 {
+  border-radius: 20px 0 0 20px;
+}
+
+.player1-active .player1 {
+  opacity: 0.8;
+}
+
+.player2-active .player0 {
+  opacity: 0.8;
 }
 
 .active.player1 {
-    background: #ffffff7d;
-    border-radius: 20px 0 0 20px;
-}
-
-.player1-active .player2 {
-    opacity: .8;
-}
-
-.player2-active .player1 {
-    opacity: .8;
-}
-
-.active.player2 {
-    background: #ffffff7d;
-    border-radius: 0px 20px 20px 0;
+  border-radius: 0px 20px 20px 0;
 }
 
 .player {
-    padding: 100px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.3s ease-in;
+}
+
+.player0.winner-player {
+  background: #2f2e2e;
+  border-radius: 20px 0 0 20px;
 }
 
 .player1.winner-player {
-    background: #000;
-}
-
-.player2.winner-player {
-    background: #000;
+  background: #2f2e2e;
+  border-radius: 0 20px 20px 0;
 }
 
 .player .name {
-    color: #000;
-    font-size: 2.3rem;
-    font-weight: 400;
-    text-transform: uppercase;
+  color: #000000aa;
+  font-size: 2.3rem;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 .winner-player .name {
-    color: #ffff;
-    text-align: center;
+  color: #f00909;
+  text-align: center;
 }
 
 .player .score {
-    font-size: 5rem;
-    font-weight: 300;
-    color: #f83235d6;
+  font-size: 5rem;
+  font-weight: 300;
+  color: #f83235d6;
 }
 
 .player .current {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #f31e1ee6;
-    width: 210px;
-    height: 120px;
-    border-radius: 10px;
-    padding: 10px;
-    gap: 1rem;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f31e1eb1;
+  width: 210px;
+  height: 120px;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 1rem;
 }
 
 .current .current-label {
-    text-transform: uppercase;
-    color: #ffff;
-    font-size: 16px;
+  text-transform: uppercase;
+  color: #ffff;
+  font-size: 16px;
 }
 
 .current .current-score {
-    font-size: 40px;
-    color: #ffff;
+  font-size: 40px;
+  color: #ffff;
 }
 
 .game-controls {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    left: calc((1000px - 300px) / 2);
-    top: 7%;
-    width: 300px;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: calc((1000px - 300px) / 2);
+  top: 7%;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-controls img {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
 .game-controls img {
-    margin-top: 100px;
-    margin-bottom: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .game-controls img,
 .game-controls button {
-    filter: drop-shadow(-5px 20px 20px #0000002f);
+  filter: drop-shadow(-5px 20px 20px #0000002f);
 }
 
 .game-controls button {
-    width: 200px;
-    height: 50px;
-    border-radius: 30px;
-    background: #ffff;
-    border: none;
-    font-size: 18px;
-    font-weight: 400;
-    text-transform: uppercase;
-    cursor: pointer;
+  width: 200px;
+  height: 45px;
+  border-radius: 30px;
+  background: #ffff;
+  border: none;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.game-controls button:active {
+  transform: translateY(30%);
+}
+
+.game-controls button::first-letter {
+    font-size: 23px;
 }
 
 .game-controls button:nth-child(4) {
-    margin-top: 20px;
-    width: 140px;
+  margin-top: 20px;
+  width: 140px;
 }
 
 .game-controls button:nth-child(3) {
-    width: 180px;
+  width: 180px;
 }
 
 .game-controls span {
-    font-size: 12px;
-    transform: translateY(60px);
-    font-weight: 600;
+  font-size: 12px;
+  transform: translateY(60px);
+  font-weight: 600;
 
-    a {
-        text-decoration: none;
-        color: aliceblue;
-    }
+  a {
+    text-decoration: underline;
+    color: aliceblue;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
-    .container {
-        width: 900px;
-    }
+  .container {
+    width: 900px;
+  }
 
-    .game-controls {
-        left: calc((900px - 300px) / 2);
-        top: 5%;
-    }
+  .game-controls {
+    left: calc((900px - 300px) / 2);
+    top: 5%;
+  }
 }
 
 @media only screen and (max-width: 800px) {
-    .container {
-        width: 750px;
-    }
+  .container {
+    width: 750px;
+  }
 
-    .game-controls {
-        left: calc((750px - 300px) / 2);
-        top: 5%;
-    }
+  .game-controls {
+    left: calc((750px - 300px) / 2);
+    top: 5%;
+  }
 }
 
 @media only screen and (max-width: 612px) {
-    .container {
-        width: 550px;
-    }
+  .container {
+    width: 550px;
+  }
 
-    .game-controls {
-        left: calc((550px - 300px) / 2);
-    }
+  .game-controls {
+    left: calc((550px - 300px) / 2);
+  }
 
-    .game-controls span {
-        transform: translateY(100px);
-    }
+  .game-controls span {
+    transform: translateY(100px);
+  }
 
-    .player .name {
-        font-size: 1.9rem;
-        text-align: center;
-    }
+  .player .name {
+    font-size: 1.9rem;
+    text-align: center;
+  }
 
-    .player .score {
-        font-size: 4rem;
-    }
+  .player .score {
+    font-size: 4rem;
+  }
 }
 
 @media only screen and (max-width: 412px) {
+  .container {
+    width: 350px;
+    height: 99vh;
+  }
 
-    .container {
-        width: 350px;
-        height: 99vh;
-    }
+  .game-controls {
+    left: calc((350px - 100px) / 2);
+    top: 5%;
+    width: 100px;
+  }
 
-    .game-controls {
-        left: calc((350px - 100px) / 2);
-        top: 5%;
-        width: 100px;
-    }
+  .game-controls span {
+    transform: translateY(200px);
+    text-align: center;
+  }
 
-    .game-controls span {
-        transform: translateY(200px);
-        text-align: center;
-    }
+  .game-controls button {
+    width: 170px;
+    height: calc(100px / 2);
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 400;
+  }
 
-    .game-controls button {
-        width: 170px;
-        height: calc(100px / 2);
-        border-radius: 30px;
-        font-size: 16px;
-        font-weight: 400;
-    }
+  .game-controls img {
+    width: 70px;
+    height: 70px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
 
-    .game-controls img {
-        width: 70px;
-        height: 70px;
-        margin-top: 70px;
-        margin-bottom: 70px;
-    }
+  .game-controls button:nth-child(3) {
+    width: 150px;
+  }
 
-    .game-controls button:nth-child(3) {
-        width: 150px;
-    }
+  .game-controls button:nth-child(4) {
+    margin-top: 20px;
+    width: 120px;
+  }
 
-    .game-controls button:nth-child(4) {
-        margin-top: 20px;
-        width: 120px;
-    }
+  .player {
+    padding: 50px;
+    gap: 5rem;
+  }
 
-    .player {
-        padding: 50px;
-        gap: 5rem;
-    }
+  .winner-player {
+    padding: 0;
+  }
 
-    .winner-player {
-        padding: 0;
-    }
+  .player .name {
+    font-size: 1.2rem;
+  }
 
-    .player .name {
-        font-size: 1.2rem;
-    }
+  .winner-player .name {
+    width: 50%;
+    height: auto;
+  }
 
-    .winner-player .name {
-        width: 50%;
-        height: auto;
-    }
+  .player .score {
+    font-size: 3rem;
+  }
 
-    .player .score {
-        font-size: 3rem;
-    }
+  .player .current {
+    width: 150px;
+    height: 80px;
+    gap: 0.1rem;
+    margin-top: 100px;
+  }
 
-    .player .current {
-        width: 150px;
-        height: 80px;
-        gap: .1rem;
-        margin-top: 100px;
-    }
+  .current .current-score {
+    font-size: 30px;
+    color: #ffff;
+  }
 
-    .current .current-score {
-        font-size: 30px;
-        color: #ffff;
-    }
+  .current .current-label {
+    font-size: 14px;
+  }
 
-    .current .current-label {
-        font-size: 14px;
-    }
+  section {
+    align-items: center;
+  }
 
-    section {
-        align-items: center;
-    }
-
-    body {
-        background: linear-gradient(to bottom, #f31e1ee6, #e534d6);
-        padding: 10px 0px;
-    }
+  body {
+    background: linear-gradient(to bottom, #f31e1ee6, #e534d6);
+    padding: 10px 0px;
+  }
 }
 
 @media only screen and (max-width: 314px) {
-    .container {
-        width: 300px;
-        height: 98vh;
-    }
+  .container {
+    width: 300px;
+    height: 98vh;
+  }
 
-    .game-controls {
-        left: calc((300px - 100px) / 2);
-        top: 5%;
-        width: 100px;
-    }
+  .game-controls {
+    left: calc((300px - 100px) / 2);
+    top: 5%;
+    width: 100px;
+  }
 
-    .player .current {
-        width: 100px;
-        height: 60px;
-        gap: .1rem;
-    }
+  .player .current {
+    width: 100px;
+    height: 60px;
+    gap: 0.1rem;
+  }
 
-    .current .current-label {
-        font-size: 12px;
-    }
+  .current .current-label {
+    font-size: 12px;
+  }
 
-    .player .score {
-        font-size: 2rem;
-    }
+  .player .score {
+    font-size: 2rem;
+  }
 
-    .current .current-score {
-        font-size: 20px;
-    }
+  .current .current-score {
+    font-size: 20px;
+  }
 }
