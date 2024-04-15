@@ -91,7 +91,7 @@ holdBtn.addEventListener("click", () => {
 
 newGameBtn.addEventListener("click", gameStart);
 
-// stater codes;
+// initial codes;
 
 // currentScorePlayer1.textContent = 0;
 // currentScorePlayer2.textContent = 0;
